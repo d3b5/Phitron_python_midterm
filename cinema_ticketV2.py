@@ -141,7 +141,7 @@ while True:
     print("""Options:
     1. View all shows
     2. View available seats (show_id)
-    3. Book ticket (show_id, row, col)
+    3. Book ticket (show_id, row_letter, col)
     4. Exit""")
     op = int(input("Select option: "))
     
