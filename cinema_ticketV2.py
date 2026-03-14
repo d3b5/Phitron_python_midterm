@@ -39,7 +39,7 @@ class Hall:
             print()
 
             for i in range(self.__row):
-                print(i,end='  ')
+                print(chr(ord('A')+i),end='  ')
                 for j in range(self.__col):
                     print(grid[i][j],end=' ')
                 print()
@@ -55,13 +55,14 @@ class Hall:
             for i in range(self.__row):
                 for j in range(self.__col):
                     if grid[i][j]=='O':
-                        print(f"{cnt}. Seat({i},{j})")
+                        print(f"{cnt}. Seat({chr(ord('A')+i)},{j})")
                         cnt+=1
             print("\nAvailable seats: ",cnt-1)
             print("Booked Seats: ", self.__row*self.__col-cnt+1)   
             print() 
     def book_seat(self,id,row,col):
         flag = False
+        row = ord(row)-65
         if id not in self.__shows:
             print("Invalid ID")
         elif row<0 or row>=self.__row:
@@ -152,7 +153,7 @@ while True:
         star_cinema.seat_plan(id)
     elif op==3:
         id = int(input("Enter Show ID: "))
-        row = int(input("Enter Seat Row: "))
+        row = input("Enter Seat Row: ").upper()
         col = int(input("Enter Seat Col: "))
         star_cinema.book_ticket(id,row,col)
     elif op==4:
@@ -160,7 +161,3 @@ while True:
         break
     else:
         print("Invalid Option")
-
-
-
-
